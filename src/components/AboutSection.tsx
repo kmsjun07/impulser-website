@@ -6,20 +6,19 @@ export default function AboutSection() {
           {/* Left: Visual */}
           <div className="relative">
             <div className="glow rounded-2xl border border-border bg-surface p-10">
-              {/* Abstract tech visual */}
               <div className="grid grid-cols-3 gap-4">
                 {Array.from({ length: 9 }).map((_, i) => (
                   <div
                     key={i}
-                    className="flex aspect-square items-center justify-center rounded-xl border border-border bg-background text-sm font-mono text-muted transition-colors hover:border-primary/40 hover:text-primary"
+                    className="flex aspect-square items-center justify-center rounded-xl border border-border bg-background text-sm font-mono text-muted transition-colors hover:border-gold/40 hover:text-gold"
                   >
                     {["AI", "ML", "DL", "API", "SaaS", "DB", "R&D", "IoT", "Dev"][i]}
                   </div>
                 ))}
               </div>
               <div className="mt-6 flex items-center gap-3">
-                <div className="h-2 flex-1 rounded-full bg-primary/20">
-                  <div className="h-2 w-4/5 rounded-full bg-gradient-to-r from-primary to-accent" />
+                <div className="h-2 flex-1 rounded-full bg-gold/10">
+                  <div className="h-2 w-4/5 rounded-full bg-gradient-to-r from-gold-dark via-gold to-gold-light" />
                 </div>
                 <span className="text-xs text-muted">기술 역량</span>
               </div>
@@ -28,7 +27,7 @@ export default function AboutSection() {
 
           {/* Right: Content */}
           <div>
-            <p className="mb-3 text-sm font-semibold tracking-widest text-primary uppercase">
+            <p className="mb-3 text-sm font-semibold tracking-widest text-gold uppercase">
               About Us
             </p>
             <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
@@ -63,7 +62,7 @@ export default function AboutSection() {
                 },
               ].map((value) => (
                 <div key={value.title} className="flex gap-4">
-                  <div className="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" />
+                  <div className="mt-1 h-2 w-2 shrink-0 rounded-full bg-gold" />
                   <div>
                     <h4 className="font-semibold">{value.title}</h4>
                     <p className="text-sm text-muted">{value.desc}</p>

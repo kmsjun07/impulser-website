@@ -3,13 +3,14 @@
 @theme inline {
   --color-background: #0a0a0a;
   --color-foreground: #ededed;
-  --color-primary: #6366f1;
-  --color-primary-light: #818cf8;
-  --color-accent: #22d3ee;
+  --color-gold: #C9A96E;
+  --color-gold-light: #D4BC8A;
+  --color-gold-dark: #A8893F;
+  --color-gold-pale: #E8D5A8;
   --color-surface: #111111;
   --color-surface-light: #1a1a1a;
-  --color-border: #262626;
-  --color-muted: #a3a3a3;
+  --color-border: #1e1e1e;
+  --color-muted: #999999;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -24,23 +25,25 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Gradient text utility */
 .gradient-text {
-  background: linear-gradient(135deg, #6366f1 0%, #22d3ee 100%);
+  background: linear-gradient(135deg, #C9A96E 0%, #E8D5A8 50%, #C9A96E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glow effect */
 .glow {
-  box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 50px rgba(201, 169, 110, 0.1);
 }
 
-/* Grid background pattern */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(201, 169, 110, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 169, 110, 0.02) 1px, transparent 1px);
   background-size: 60px 60px;
+}
+
+.gold-line {
+  background: linear-gradient(90deg, transparent, #C9A96E, transparent);
+  height: 1px;
 }

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function HeroSection() {
   return (
     <section
@@ -5,12 +7,19 @@ export default function HeroSection() {
       className="grid-bg relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-20"
     >
       {/* Background glow */}
-      <div className="pointer-events-none absolute top-1/4 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
+      <div className="pointer-events-none absolute top-1/4 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-gold/5 blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
+        {/* Logo */}
+        <div className="mb-8 flex justify-center">
+          <div className="rounded-full border border-gold/20 bg-surface p-6">
+            <Image src="/logo.png" alt="IMPULSER" width={80} height={80} />
+          </div>
+        </div>
+
         {/* Badge */}
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm text-muted">
-          <span className="h-2 w-2 rounded-full bg-accent" />
+        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-surface px-4 py-2 text-sm text-gold">
+          <span className="h-2 w-2 rounded-full bg-gold" />
           AI & 알고리즘 전문 기업
         </div>
 
@@ -32,13 +41,13 @@ export default function HeroSection() {
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
             href="#services"
-            className="rounded-lg bg-primary px-8 py-3.5 font-medium text-white transition-all hover:bg-primary-light hover:shadow-lg hover:shadow-primary/25"
+            className="rounded-lg bg-gold px-8 py-3.5 font-medium text-black transition-all hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20"
           >
             서비스 알아보기
           </a>
           <a
             href="#contact"
-            className="rounded-lg border border-border px-8 py-3.5 font-medium text-foreground transition-colors hover:bg-surface-light"
+            className="rounded-lg border border-gold/30 px-8 py-3.5 font-medium text-gold transition-colors hover:bg-gold/10"
           >
             문의하기
           </a>
@@ -53,7 +62,7 @@ export default function HeroSection() {
             { value: "R&D", label: "기술 연구개발" },
           ].map((stat) => (
             <div key={stat.label}>
-              <div className="text-2xl font-bold text-primary sm:text-3xl">
+              <div className="text-2xl font-bold text-gold sm:text-3xl">
                 {stat.value}
               </div>
               <div className="mt-1 text-sm text-muted">{stat.label}</div>

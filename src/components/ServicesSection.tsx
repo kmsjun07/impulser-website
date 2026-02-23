@@ -45,9 +45,12 @@ export default function ServicesSection() {
   return (
     <section id="services" className="px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl">
+        {/* Divider */}
+        <div className="gold-line mb-16" />
+
         {/* Header */}
         <div className="mb-16 text-center">
-          <p className="mb-3 text-sm font-semibold tracking-widest text-primary uppercase">
+          <p className="mb-3 text-sm font-semibold tracking-widest text-gold uppercase">
             Services
           </p>
           <h2 className="text-3xl font-bold sm:text-4xl">
@@ -63,9 +66,9 @@ export default function ServicesSection() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="group rounded-2xl border border-border bg-surface p-8 transition-all hover:border-primary/30 hover:bg-surface-light"
+              className="group rounded-2xl border border-border bg-surface p-8 transition-all hover:border-gold/30 hover:bg-surface-light"
             >
-              <div className="mb-5 inline-flex rounded-xl bg-primary/10 p-3 text-primary transition-colors group-hover:bg-primary/20">
+              <div className="mb-5 inline-flex rounded-xl bg-gold/10 p-3 text-gold transition-colors group-hover:bg-gold/20">
                 {service.icon}
               </div>
               <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>

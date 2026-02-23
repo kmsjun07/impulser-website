@@ -11,7 +11,7 @@ export default function TechSection() {
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-16 text-center">
-          <p className="mb-3 text-sm font-semibold tracking-widest text-primary uppercase">
+          <p className="mb-3 text-sm font-semibold tracking-widest text-gold uppercase">
             Technology
           </p>
           <h2 className="text-3xl font-bold sm:text-4xl">기술 스택</h2>
@@ -27,14 +27,14 @@ export default function TechSection() {
               key={group.category}
               className="rounded-2xl border border-border bg-surface p-6"
             >
-              <h3 className="mb-4 text-sm font-semibold tracking-widest text-primary uppercase">
+              <h3 className="mb-4 text-sm font-semibold tracking-widest text-gold uppercase">
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-muted transition-colors hover:border-primary/30 hover:text-foreground"
+                    className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-muted transition-colors hover:border-gold/30 hover:text-foreground"
                   >
                     {item}
                   </span>
@@ -57,7 +57,7 @@ export default function TechSection() {
               { step: "04", title: "배포 & 운영", desc: "안정적으로 배포하고 지속적인 유지보수를 제공합니다" },
             ].map((phase) => (
               <div key={phase.step} className="relative text-center">
-                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full border border-primary/30 bg-primary/10 font-mono text-lg font-bold text-primary">
+                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full border border-gold/30 bg-gold/10 font-mono text-lg font-bold text-gold">
                   {phase.step}
                 </div>
                 <h4 className="mb-2 font-semibold">{phase.title}</h4>

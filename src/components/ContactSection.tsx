@@ -13,10 +13,13 @@ export default function ContactSection() {
   return (
     <section id="contact" className="px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl">
+        {/* Divider */}
+        <div className="gold-line mb-16" />
+
         <div className="grid gap-16 lg:grid-cols-2">
           {/* Left */}
           <div>
-            <p className="mb-3 text-sm font-semibold tracking-widest text-primary uppercase">
+            <p className="mb-3 text-sm font-semibold tracking-widest text-gold uppercase">
               Contact
             </p>
             <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
@@ -32,19 +35,32 @@ export default function ContactSection() {
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold/10 text-gold">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                   </svg>
                 </div>
                 <div>
                   <h4 className="font-semibold">이메일</h4>
-                  <p className="text-sm text-muted">contact@impulser.com</p>
+                  <p className="text-sm text-muted">contact@impulser.biz</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold/10 text-gold">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-semibold">전화</h4>
+                  <p className="text-sm text-muted">Tel. 070-8098-7256</p>
+                  <p className="text-sm text-muted">Fax. 0508-958-8359</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold/10 text-gold">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
@@ -52,7 +68,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-semibold">위치</h4>
-                  <p className="text-sm text-muted">대한민국</p>
+                  <p className="text-sm text-muted">서울특별시 강남구 도산대로 27길 23, 2층</p>
                 </div>
               </div>
             </div>
@@ -62,7 +78,7 @@ export default function ContactSection() {
           <div className="rounded-2xl border border-border bg-surface p-8">
             {submitted ? (
               <div className="flex h-full flex-col items-center justify-center text-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold">
                   <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                   </svg>
@@ -80,8 +96,8 @@ export default function ContactSection() {
                     id="name"
                     type="text"
                     required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/50 focus:border-primary focus:outline-none"
-                    placeholder="홍길동 / 임펄서"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/50 focus:border-gold focus:outline-none"
+                    placeholder="홍길동 / 회사명"
                   />
                 </div>
                 <div>
@@ -92,7 +108,7 @@ export default function ContactSection() {
                     id="email"
                     type="email"
                     required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/50 focus:border-primary focus:outline-none"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/50 focus:border-gold focus:outline-none"
                     placeholder="email@example.com"
                   />
                 </div>
@@ -102,7 +118,7 @@ export default function ContactSection() {
                   </label>
                   <select
                     id="service"
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:border-primary focus:outline-none"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:border-gold focus:outline-none"
                   >
                     <option value="">선택해주세요</option>
                     <option value="ai">AI & 머신러닝</option>
@@ -120,13 +136,13 @@ export default function ContactSection() {
                     id="message"
                     rows={4}
                     required
-                    className="w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/50 focus:border-primary focus:outline-none"
+                    className="w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/50 focus:border-gold focus:outline-none"
                     placeholder="프로젝트에 대해 알려주세요"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full rounded-lg bg-primary py-3.5 font-medium text-white transition-colors hover:bg-primary-light"
+                  className="w-full rounded-lg bg-gold py-3.5 font-medium text-black transition-colors hover:bg-gold-light"
                 >
                   문의 보내기
                 </button>

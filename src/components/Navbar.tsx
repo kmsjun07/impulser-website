@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const navLinks = [
   { href: "#home", label: "홈" },
@@ -17,8 +18,11 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a href="#home" className="text-xl font-bold tracking-wider">
-          <span className="gradient-text">IMPULSER</span>
+        <a href="#home" className="flex items-center gap-3">
+          <Image src="/logo.png" alt="IMPULSER" width={36} height={36} />
+          <span className="text-xl font-bold tracking-wider gradient-text">
+            IMPULSER
+          </span>
         </a>
 
         {/* Desktop Nav */}
@@ -27,14 +31,14 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted transition-colors hover:text-foreground"
+              className="text-sm text-muted transition-colors hover:text-gold"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contact"
-            className="rounded-lg bg-primary px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-light"
+            className="rounded-lg border border-gold/50 bg-gold/10 px-5 py-2 text-sm font-medium text-gold transition-colors hover:bg-gold/20"
           >
             상담 문의
           </a>
@@ -66,7 +70,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="block py-3 text-muted transition-colors hover:text-foreground"
+              className="block py-3 text-muted transition-colors hover:text-gold"
             >
               {link.label}
             </a>
