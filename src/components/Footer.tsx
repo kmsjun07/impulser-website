@@ -48,6 +48,22 @@ export default function Footer() {
         </div>
 
         <div className="gold-line mt-10 mb-6" />
+
+        {/* Business Info */}
+        <div className="mb-6 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-muted/70">
+          <span>주식회사 임펄서(IMPULSER)</span>
+          <span className="hidden sm:inline">|</span>
+          <span>대표자: 박준수</span>
+          <span className="hidden sm:inline">|</span>
+          <span>사업자등록번호: 772-81-03891</span>
+          <span className="hidden sm:inline">|</span>
+          <span>서울특별시 강남구 도산대로 27길 23, 2층</span>
+          <span className="hidden sm:inline">|</span>
+          <span>Tel. 070-8098-7256</span>
+          <span className="hidden sm:inline">|</span>
+          <span>contact@impulser.biz</span>
+        </div>
+
         <div className="text-center text-sm text-muted">
           &copy; {new Date().getFullYear()} 주식회사 임펄서(IMPULSER). All rights reserved.
         </div>
