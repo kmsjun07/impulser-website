@@ -1,9 +1,13 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useLang } from "@/i18n/LanguageContext";
+import { t } from "@/i18n/translations";
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const { lang } = useLang();
+  const c = t.contact;
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -13,25 +17,18 @@ export default function ContactSection() {
   return (
     <section id="contact" className="px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl">
-        {/* Divider */}
         <div className="gold-line mb-16" />
 
         <div className="grid gap-16 lg:grid-cols-2">
           {/* Left */}
           <div>
-            <p className="mb-3 text-sm font-semibold tracking-widest text-gold uppercase">
-              Contact
-            </p>
+            <p className="mb-3 text-sm font-semibold tracking-widest text-gold uppercase">Contact</p>
             <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
-              프로젝트를
+              {c.heading1[lang]}
               <br />
-              <span className="gradient-text">시작해보세요</span>
+              <span className="gradient-text">{c.heading2[lang]}</span>
             </h2>
-            <p className="mb-10 leading-relaxed text-muted">
-              기술 상담부터 프로젝트 견적까지, 부담 없이 문의해 주세요.
-              <br />
-              빠른 시일 내에 답변드리겠습니다.
-            </p>
+            <p className="mb-10 leading-relaxed text-muted whitespace-pre-line">{c.subtitle[lang]}</p>
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -41,7 +38,7 @@ export default function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold">이메일</h4>
+                  <h4 className="font-semibold">{c.email[lang]}</h4>
                   <p className="text-sm text-muted">contact@impulser.biz</p>
                 </div>
               </div>
@@ -53,7 +50,7 @@ export default function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold">전화</h4>
+                  <h4 className="font-semibold">{c.phone[lang]}</h4>
                   <p className="text-sm text-muted">Tel. 070-8098-7256</p>
                   <p className="text-sm text-muted">Fax. 0508-958-8359</p>
                 </div>
@@ -67,8 +64,8 @@ export default function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold">위치</h4>
-                  <p className="text-sm text-muted">서울특별시 강남구 도산대로 27길 23, 2층</p>
+                  <h4 className="font-semibold">{c.location[lang]}</h4>
+                  <p className="text-sm text-muted">{c.address[lang]}</p>
                 </div>
               </div>
             </div>
@@ -83,68 +80,36 @@ export default function ContactSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                   </svg>
                 </div>
-                <h3 className="mb-2 text-xl font-semibold">문의가 접수되었습니다</h3>
-                <p className="text-muted">빠른 시일 내에 답변드리겠습니다.</p>
+                <h3 className="mb-2 text-xl font-semibold">{c.formSuccess[lang]}</h3>
+                <p className="text-muted">{c.formSuccessDesc[lang]}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label htmlFor="name" className="mb-2 block text-sm font-medium">
-                    이름 / 회사명
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/50 focus:border-gold focus:outline-none"
-                    placeholder="홍길동 / 회사명"
-                  />
+                  <label htmlFor="name" className="mb-2 block text-sm font-medium">{c.formName[lang]}</label>
+                  <input id="name" type="text" required className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/50 focus:border-gold focus:outline-none" placeholder={c.formNamePlaceholder[lang]} />
                 </div>
                 <div>
-                  <label htmlFor="email" className="mb-2 block text-sm font-medium">
-                    이메일
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    required
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/50 focus:border-gold focus:outline-none"
-                    placeholder="email@example.com"
-                  />
+                  <label htmlFor="email" className="mb-2 block text-sm font-medium">{c.formEmail[lang]}</label>
+                  <input id="email" type="email" required className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/50 focus:border-gold focus:outline-none" placeholder="email@example.com" />
                 </div>
                 <div>
-                  <label htmlFor="service" className="mb-2 block text-sm font-medium">
-                    관심 서비스
-                  </label>
-                  <select
-                    id="service"
-                    className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:border-gold focus:outline-none"
-                  >
-                    <option value="">선택해주세요</option>
-                    <option value="ai">AI & 머신러닝</option>
-                    <option value="dev">IT 기술개발</option>
-                    <option value="algo">알고리즘 개발</option>
-                    <option value="solution">솔루션 제공</option>
-                    <option value="other">기타</option>
+                  <label htmlFor="service" className="mb-2 block text-sm font-medium">{c.formService[lang]}</label>
+                  <select id="service" className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:border-gold focus:outline-none">
+                    <option value="">{c.formServicePlaceholder[lang]}</option>
+                    <option value="ai">{c.formServiceOptions.ai[lang]}</option>
+                    <option value="dev">{c.formServiceOptions.dev[lang]}</option>
+                    <option value="algo">{c.formServiceOptions.algo[lang]}</option>
+                    <option value="solution">{c.formServiceOptions.solution[lang]}</option>
+                    <option value="other">{c.formServiceOptions.other[lang]}</option>
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="message" className="mb-2 block text-sm font-medium">
-                    문의 내용
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    required
-                    className="w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/50 focus:border-gold focus:outline-none"
-                    placeholder="프로젝트에 대해 알려주세요"
-                  />
+                  <label htmlFor="message" className="mb-2 block text-sm font-medium">{c.formMessage[lang]}</label>
+                  <textarea id="message" rows={4} required className="w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/50 focus:border-gold focus:outline-none" placeholder={c.formMessagePlaceholder[lang]} />
                 </div>
-                <button
-                  type="submit"
-                  className="w-full rounded-lg bg-gold py-3.5 font-medium text-black transition-colors hover:bg-gold-light"
-                >
-                  문의 보내기
+                <button type="submit" className="w-full rounded-lg bg-gold py-3.5 font-medium text-black transition-colors hover:bg-gold-light">
+                  {c.formSubmit[lang]}
                 </button>
               </form>
             )}
