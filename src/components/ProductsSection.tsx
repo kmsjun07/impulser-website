@@ -18,8 +18,6 @@ export default function ProductsSection() {
 
   return (
     <section id="products" className="relative overflow-hidden px-6 py-24 sm:py-32">
-      <div className="pointer-events-none absolute top-1/3 right-0 h-[400px] w-[400px] rounded-full bg-gold/5 blur-[130px]" />
-
       <div className="relative mx-auto max-w-7xl">
         <Reveal className="mb-16 text-center">
           <p className="mb-3 text-sm font-semibold tracking-widest text-gold uppercase">
@@ -35,7 +33,7 @@ export default function ProductsSection() {
 
         {/* Featured: Pillert */}
         <Reveal>
-          <div className="product-glow relative overflow-hidden rounded-3xl border border-border bg-surface p-8 sm:p-12">
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-background p-8 sm:p-12">
             <div className="relative grid items-center gap-10 lg:grid-cols-[auto_1fr]">
               {/* Logo tile */}
               <div className="flex justify-center lg:justify-start">
@@ -45,7 +43,7 @@ export default function ProductsSection() {
                     alt="Pillert"
                     width={160}
                     height={160}
-                    className="h-full w-full rounded-3xl grayscale"
+                    className="h-full w-full rounded-3xl"
                   />
                 </div>
               </div>
@@ -68,10 +66,10 @@ export default function ProductsSection() {
                 <h3 className="mb-2 text-3xl font-bold sm:text-4xl">
                   {pillert.name[lang]}
                 </h3>
-                <p className="mb-4 text-lg font-medium text-gold">
+                <p className="mb-4 text-lg font-medium text-foreground">
                   {pillert.tagline[lang]}
                 </p>
-                <p className="mb-7 max-w-xl leading-relaxed text-muted">
+                <p className="mb-7 max-w-xl leading-relaxed text-foreground">
                   {pillert.desc[lang]}
                 </p>
 
@@ -91,7 +89,7 @@ export default function ProductsSection() {
                     href={PILLERT_PLAY}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2.5 rounded-xl border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-gold/40 hover:text-gold"
+                    className="inline-flex items-center gap-2.5 rounded-xl bg-foreground px-5 py-3 text-sm font-semibold text-background transition-transform hover:-translate-y-0.5"
                   >
                     <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M3.6 1.84a1 1 0 0 0-.6.92v18.48a1 1 0 0 0 .6.92l10.1-10.16L3.6 1.84zM15.1 13.4l2.86 2.88-11.3 6.4 8.44-9.28zm0-2.8L6.66 1.32l11.3 6.4-2.86 2.88zm5.46-.94-2.4 1.36 2.4 1.36c.7.4.7 1.7 0 2.1l-.02.01 2.04-3.47-2.02-1.36z" />
@@ -108,12 +106,12 @@ export default function ProductsSection() {
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {upcoming.map((item, i) => (
             <Reveal key={item.name.en} delay={i * 120}>
-              <div className="group relative h-full overflow-hidden rounded-3xl border border-border bg-surface p-8 transition-all hover:border-gold/30 hover:bg-surface-light">
+              <div className="group relative h-full overflow-hidden rounded-3xl border border-border bg-background p-8 transition-transform hover:-translate-y-1">
                 <div className="mb-6 flex items-center justify-between">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-gold/20 bg-gradient-to-br from-gold/15 to-transparent text-2xl font-bold text-gold">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-foreground bg-background text-2xl font-bold text-foreground">
                     {item.name[lang].charAt(0)}
                   </div>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/20 bg-gold/5 px-3 py-1 text-xs font-medium text-gold/90">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-foreground bg-background px-3 py-1 text-xs font-medium text-foreground">
                     <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
@@ -125,8 +123,8 @@ export default function ProductsSection() {
                   {item.category[lang]}
                 </p>
                 <h3 className="mb-2 text-2xl font-bold">{item.name[lang]}</h3>
-                <p className="mb-3 font-medium text-gold/90">{item.tagline[lang]}</p>
-                <p className="text-sm leading-relaxed text-muted">{item.desc[lang]}</p>
+                <p className="mb-3 font-medium text-foreground">{item.tagline[lang]}</p>
+                <p className="text-sm leading-relaxed text-foreground">{item.desc[lang]}</p>
               </div>
             </Reveal>
           ))}

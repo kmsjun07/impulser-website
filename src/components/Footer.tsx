@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="mb-4 flex items-center gap-3">
-              <Image src="/logo.png" alt="IMPULSER" width={28} height={28} />
+              <Image src="/logo.png" alt="IMPULSER" width={28} height={28} className="logo-mark" />
               <span className="text-lg font-bold tracking-wider gradient-text">IMPULSER</span>
             </div>
             <p className="text-sm leading-relaxed text-muted">{f.tagline[lang]}</p>
@@ -50,7 +50,7 @@ export default function Footer() {
         <div className="gold-line mt-10 mb-6" />
 
         {/* Business Info */}
-        <div className="mb-6 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-muted/70">
+        <div className="mb-6 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-muted">
           <span>주식회사 임펄서(IMPULSER)</span>
           <span className="hidden sm:inline">|</span>
           <span>대표자: 박준수</span>

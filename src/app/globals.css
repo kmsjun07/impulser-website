@@ -2,34 +2,34 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ---- Light theme (default) — fully black & white ---- */
-/* The "accent" (gold) tokens are intentionally MONOCHROME: the entire UI is
-   black/white/gray with no color accent at all. */
+/* ---- Light theme (default) — strict black & white ---- */
+/* No grays: every surface is white, every line/text is pure black.
+   (Brand colors like Pillert / store badges are applied locally.) */
 :root {
   --background: #ffffff;
-  --foreground: #0a0a0a;
-  --surface: #f4f5f7;
-  --surface-light: #ececef;
-  --border: #e3e4e7;
-  --muted: #6b7280;
-  --accent: #0a0a0a;
-  --accent-light: #2c2c2e;
+  --foreground: #000000;
+  --surface: #ffffff;
+  --surface-light: #ffffff;
+  --border: #000000;
+  --muted: #000000;
+  --accent: #000000;
+  --accent-light: #000000;
   --accent-dark: #000000;
-  --accent-pale: #ededef;
+  --accent-pale: #ffffff;
 }
 
-/* ---- Dark theme ---- */
+/* ---- Dark theme — strict white on black ---- */
 .dark {
-  --background: #0a0a0a;
-  --foreground: #f2f2f3;
-  --surface: #161618;
-  --surface-light: #1f1f22;
-  --border: #2a2a2e;
-  --muted: #9a9aa2;
-  --accent: #f2f2f3;
+  --background: #000000;
+  --foreground: #ffffff;
+  --surface: #000000;
+  --surface-light: #000000;
+  --border: #ffffff;
+  --muted: #ffffff;
+  --accent: #ffffff;
   --accent-light: #ffffff;
-  --accent-dark: #d4d4d8;
-  --accent-pale: #2a2a2e;
+  --accent-dark: #ffffff;
+  --accent-pale: #000000;
 }
 
 @theme inline {
@@ -59,13 +59,21 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Mono headline style — solid foreground (Hancom keeps headlines monochrome) */
+/* Mono headline style — solid foreground */
 .gradient-text {
   color: var(--foreground);
 }
 
+/* Solid logo mark: crisp black in light, crisp white in dark (no blur/fade) */
+.logo-mark {
+  filter: brightness(0);
+}
+.dark .logo-mark {
+  filter: brightness(0) invert(1);
+}
+
 .glow {
-  box-shadow: 0 24px 60px rgba(10, 10, 10, 0.06);
+  box-shadow: none;
 }
 
 .grid-bg {
@@ -76,7 +84,7 @@ body {
 }
 
 .gold-line {
-  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--foreground) 14%, transparent), transparent);
+  background: var(--foreground);
   height: 1px;
 }
 

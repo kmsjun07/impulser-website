@@ -48,7 +48,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-3">
-          <Image src="/logo.png" alt="IMPULSER" width={36} height={36} />
+          <Image src="/logo.png" alt="IMPULSER" width={36} height={36} className="logo-mark" />
           <span className="text-xl font-bold tracking-wider gradient-text">
             IMPULSER
           </span>
@@ -68,7 +68,7 @@ export default function Navbar() {
 
           <a
             href="#contact"
-            className="rounded-lg border border-gold/50 bg-gold/10 px-5 py-2 text-sm font-medium text-gold transition-colors hover:bg-gold/20"
+            className="rounded-lg border border-foreground bg-background px-5 py-2 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
           >
             {t.nav.cta[lang]}
           </a>
@@ -92,7 +92,7 @@ export default function Navbar() {
                   <button
                     key={l}
                     onClick={() => { setLang(l); setLangOpen(false); }}
-                    className={`block w-full px-4 py-2 text-left text-sm transition-colors hover:bg-surface-light ${l === lang ? "text-gold" : "text-muted"}`}
+                    className={`block w-full px-4 py-2 text-left text-sm transition-colors hover:bg-foreground hover:text-background ${l === lang ? "font-semibold text-foreground" : "text-foreground"}`}
                   >
                     {langLabels[l]}
                   </button>
@@ -120,7 +120,7 @@ export default function Navbar() {
                   <button
                     key={l}
                     onClick={() => { setLang(l); setLangOpen(false); }}
-                    className={`block w-full px-3 py-1.5 text-left text-xs ${l === lang ? "text-gold" : "text-muted"}`}
+                    className={`block w-full px-3 py-1.5 text-left text-xs ${l === lang ? "font-semibold text-foreground" : "text-foreground"}`}
                   >
                     {langLabels[l]}
                   </button>

@@ -29,7 +29,7 @@ export default function TechSection() {
               <h3 className="mb-4 text-sm font-semibold tracking-widest text-gold uppercase">{group.category}</h3>
               <div className="flex flex-wrap gap-2">
                 {group.items.map((item) => (
-                  <span key={item} className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-muted transition-colors hover:border-gold/30 hover:text-foreground">
+                  <span key={item} className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground">
                     {item}
                   </span>
                 ))}
@@ -43,7 +43,7 @@ export default function TechSection() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {tc.steps.map((phase, i) => (
               <div key={i} className="relative text-center">
-                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full border border-gold/30 bg-gold/10 font-mono text-lg font-bold text-gold">
+                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full border border-foreground bg-background font-mono text-lg font-bold text-foreground">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <h4 className="mb-2 font-semibold">{phase.title[lang]}</h4>

@@ -36,8 +36,8 @@ export default function ServicesSection() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {s.items.map((service, i) => (
             <Reveal key={i} delay={i * 100}>
-              <div className="group h-full rounded-2xl border border-border bg-surface p-8 transition-all hover:-translate-y-1 hover:border-gold/30 hover:bg-surface-light">
-                <div className="mb-5 inline-flex rounded-xl bg-gold/10 p-3 text-gold transition-colors group-hover:bg-gold/20">
+              <div className="group h-full rounded-2xl border border-border bg-background p-8 transition-transform hover:-translate-y-1">
+                <div className="mb-5 inline-flex rounded-xl border border-foreground p-3 text-foreground">
                   {icons[i]}
                 </div>
                 <h3 className="mb-3 text-lg font-semibold">{service.title[lang]}</h3>

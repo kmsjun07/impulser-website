@@ -5,7 +5,7 @@ import { t } from "@/i18n/translations";
 
 function Plus() {
   return (
-    <svg className="h-4 w-4 text-white/80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+    <svg className="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" d="M12 5v14M5 12h14" />
     </svg>
   );
@@ -32,8 +32,8 @@ export default function HeroSection() {
         <div className="relative grid overflow-hidden rounded-[28px] lg:grid-cols-2">
           {/* Left: black panel with copy */}
           <div className="relative z-10 flex flex-col justify-center bg-[#0a0a0a] px-8 py-14 text-white sm:px-12 lg:py-20">
-            <div className="mb-7 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm text-white/80">
-              <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
+            <div className="mb-7 inline-flex w-fit items-center gap-2 rounded-full border border-white px-4 py-1.5 text-sm text-white">
+              <span className="h-1.5 w-1.5 rounded-full bg-white" />
               {h.badge[lang]}
             </div>
 
@@ -43,21 +43,21 @@ export default function HeroSection() {
               {h.heading2[lang]}
             </h1>
 
-            <p className="mt-6 max-w-lg text-base leading-relaxed text-white/65 break-keep sm:text-lg">
+            <p className="mt-6 max-w-lg text-base leading-relaxed text-white break-keep sm:text-lg">
               {h.subtitle[lang].replace(/\n/g, " ")}
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
               <a
                 href="#services"
-                className="inline-flex items-center justify-between gap-6 rounded-lg border border-white/25 px-6 py-3 font-medium text-white transition-colors hover:bg-white/10"
+                className="inline-flex items-center justify-between gap-6 rounded-lg border border-white px-6 py-3 font-medium text-white transition-colors hover:bg-white hover:text-[#0a0a0a]"
               >
                 {h.ctaPrimary[lang]}
                 <Plus />
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center justify-between gap-6 rounded-lg border border-white/25 px-6 py-3 font-medium text-white transition-colors hover:bg-white/10"
+                className="inline-flex items-center justify-between gap-6 rounded-lg border border-white px-6 py-3 font-medium text-white transition-colors hover:bg-white hover:text-[#0a0a0a]"
               >
                 {h.ctaSecondary[lang]}
                 <Plus />
@@ -85,7 +85,6 @@ export default function HeroSection() {
                   className="eq-bar w-[3px] rounded-full bg-white sm:w-1.5"
                   style={{
                     height: `${bar.height}px`,
-                    opacity: bar.opacity,
                     animationDelay: `${bar.delay}s`,
                     animationDuration: `${bar.duration}s`,
                   }}
@@ -118,7 +117,7 @@ export default function HeroSection() {
             { value: lang === "ko" ? "맞춤형" : lang === "ja" ? "カスタム" : "Custom", label: h.stats.solution[lang] },
             { value: "R&D", label: h.stats.rnd[lang] },
           ].map((stat) => (
-            <div key={stat.label} className="border-l-2 border-foreground/15 pl-4">
+            <div key={stat.label} className="border-l-2 border-foreground pl-4">
               <div className="text-2xl font-bold sm:text-3xl">{stat.value}</div>
               <div className="mt-1 text-sm text-muted">{stat.label}</div>
             </div>
