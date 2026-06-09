@@ -1,16 +1,47 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---- Light theme (default) ---- */
+:root {
+  --background: #ffffff;
+  --foreground: #0b1220;
+  --surface: #f5f8fc;
+  --surface-light: #eaf0f8;
+  --border: #e2e8f2;
+  --muted: #5b6675;
+  --accent: #2563eb;
+  --accent-light: #3b82f6;
+  --accent-dark: #1d4ed8;
+  --accent-pale: #bcd4fb;
+}
+
+/* ---- Dark theme ---- */
+.dark {
+  --background: #080b12;
+  --foreground: #e9eef5;
+  --surface: #10151f;
+  --surface-light: #1a2130;
+  --border: #232c3b;
+  --muted: #93a0b2;
+  --accent: #4f8cff;
+  --accent-light: #6ea2ff;
+  --accent-dark: #2f6fe0;
+  --accent-pale: #1d3354;
+}
+
 @theme inline {
-  --color-background: #0a0a0a;
-  --color-foreground: #ededed;
-  --color-gold: #C9A96E;
-  --color-gold-light: #D4BC8A;
-  --color-gold-dark: #A8893F;
-  --color-gold-pale: #E8D5A8;
-  --color-surface: #111111;
-  --color-surface-light: #1a1a1a;
-  --color-border: #1e1e1e;
-  --color-muted: #999999;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  /* "gold" tokens are kept as names but now map to the brand deep-blue accent */
+  --color-gold: var(--accent);
+  --color-gold-light: var(--accent-light);
+  --color-gold-dark: var(--accent-dark);
+  --color-gold-pale: var(--accent-pale);
+  --color-surface: var(--surface);
+  --color-surface-light: var(--surface-light);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -20,31 +51,32 @@
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-foreground);
+  background: var(--background);
+  color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #C9A96E 0%, #E8D5A8 50%, #C9A96E 100%);
+  background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent-light) 50%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .glow {
-  box-shadow: 0 0 50px rgba(201, 169, 110, 0.1);
+  box-shadow: 0 0 60px rgba(37, 99, 235, 0.12);
 }
 
 .grid-bg {
   background-image:
-    linear-gradient(rgba(201, 169, 110, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201, 169, 110, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
 .gold-line {
-  background: linear-gradient(90deg, transparent, #C9A96E, transparent);
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
   height: 1px;
 }
 
@@ -66,6 +98,11 @@ body {
     transform: none;
     transition: none;
   }
+  .hero-mesh,
+  .float-slow,
+  .scroll-indicator {
+    animation: none !important;
+  }
 }
 
 /* Hero scroll indicator */
@@ -86,14 +123,30 @@ body {
   animation: float-slow 9s ease-in-out infinite;
 }
 
-/* Subtle conic shimmer for featured product card */
+/* Animated hero mesh gradient (deep-blue, theme-independent) */
+.hero-mesh {
+  background:
+    radial-gradient(at 18% 28%, rgba(37, 99, 235, 0.55), transparent 45%),
+    radial-gradient(at 82% 18%, rgba(56, 130, 246, 0.45), transparent 42%),
+    radial-gradient(at 62% 82%, rgba(29, 78, 216, 0.5), transparent 46%),
+    radial-gradient(at 30% 70%, rgba(14, 30, 70, 0.6), transparent 50%),
+    #070d1c;
+  background-size: 180% 180%;
+  animation: mesh-move 20s ease-in-out infinite;
+}
+@keyframes mesh-move {
+  0%, 100% { background-position: 0% 0%, 100% 0%, 50% 100%, 0% 100%, 0 0; }
+  50% { background-position: 100% 50%, 0% 60%, 30% 60%, 80% 20%, 0 0; }
+}
+
+/* Subtle border shimmer for featured product card */
 .product-glow::before {
   content: "";
   position: absolute;
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(201, 169, 110, 0.5), transparent 40%, transparent 60%, rgba(201, 169, 110, 0.3));
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.5), transparent 40%, transparent 60%, rgba(37, 99, 235, 0.3));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
