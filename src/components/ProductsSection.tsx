@@ -108,9 +108,21 @@ export default function ProductsSection() {
             <Reveal key={item.name.en} delay={i * 120}>
               <div className="group relative h-full overflow-hidden rounded-3xl border border-border bg-background p-8 transition-transform hover:-translate-y-1">
                 <div className="mb-6 flex items-center justify-between">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-foreground bg-background text-2xl font-bold text-foreground">
-                    {item.name[lang].charAt(0)}
-                  </div>
+                  {item.name.en === "Fandora" ? (
+                    <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl border border-border bg-white">
+                      <Image
+                        src="/fandora.png"
+                        alt="Fandora"
+                        width={64}
+                        height={64}
+                        className="h-full w-full object-contain p-1.5"
+                      />
+                    </div>
+                  ) : (
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-foreground bg-background text-2xl font-bold text-foreground">
+                      {item.name[lang].charAt(0)}
+                    </div>
+                  )}
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-foreground bg-background px-3 py-1 text-xs font-medium text-foreground">
                     <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
