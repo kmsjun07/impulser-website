@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useLang } from "@/i18n/LanguageContext";
 import { t } from "@/i18n/translations";
 
@@ -12,6 +11,16 @@ function Plus() {
   );
 }
 
+// Deterministic bar field (no Math.random → no hydration mismatch)
+const BARS = Array.from({ length: 36 }, (_, i) => {
+  const env = Math.sin((Math.PI * i) / 35); // 0 → 1 → 0 envelope (waveform shape)
+  const height = Math.round(28 + env * 170 + (i % 4) * 10);
+  const delay = ((i * 137) % 100) / 100; // 0–0.99s
+  const duration = 1.05 + ((i * 53) % 70) / 100; // 1.05–1.74s
+  const opacity = 0.35 + env * 0.5;
+  return { height, delay, duration, opacity };
+});
+
 export default function HeroSection() {
   const { lang } = useLang();
   const h = t.hero;
@@ -19,7 +28,7 @@ export default function HeroSection() {
   return (
     <section id="home" className="px-4 pt-24 pb-12 sm:px-6 sm:pt-28">
       <div className="mx-auto max-w-7xl">
-        {/* Hancom-style split card: black panel + colorful aurora visual */}
+        {/* Split card: black copy panel + animated monochrome visual */}
         <div className="relative grid overflow-hidden rounded-[28px] lg:grid-cols-2">
           {/* Left: black panel with copy */}
           <div className="relative z-10 flex flex-col justify-center bg-[#0a0a0a] px-8 py-14 text-white sm:px-12 lg:py-20">
@@ -28,14 +37,14 @@ export default function HeroSection() {
               {h.badge[lang]}
             </div>
 
-            <h1 className="text-4xl font-bold leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-bold leading-[1.18] tracking-tight text-white break-keep sm:text-5xl lg:text-6xl">
               {h.heading1[lang]}
               <br />
               {h.heading2[lang]}
             </h1>
 
-            <p className="mt-6 max-w-md leading-relaxed text-white/65 whitespace-pre-line">
-              {h.subtitle[lang]}
+            <p className="mt-6 max-w-lg text-base leading-relaxed text-white/65 break-keep sm:text-lg">
+              {h.subtitle[lang].replace(/\n/g, " ")}
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
@@ -56,8 +65,8 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right: animated aurora + optional video (drop /hero.mp4 into public/) */}
-          <div className="relative min-h-[280px] overflow-hidden lg:min-h-[520px]">
+          {/* Right: animated monochrome data-pulse visual (drop /hero.mp4 to override) */}
+          <div className="relative min-h-[320px] overflow-hidden bg-[#0a0a0a] lg:min-h-[540px]">
             <div className="hero-aurora absolute inset-0" />
             <div
               className="absolute inset-0 opacity-40"
@@ -67,6 +76,24 @@ export default function HeroSection() {
                 backgroundSize: "48px 48px",
               }}
             />
+
+            {/* Equalizer / waveform */}
+            <div className="absolute inset-0 flex items-center justify-center gap-[5px] px-8 sm:gap-2 sm:px-12">
+              {BARS.map((bar, i) => (
+                <span
+                  key={i}
+                  className="eq-bar w-[3px] rounded-full bg-white sm:w-1.5"
+                  style={{
+                    height: `${bar.height}px`,
+                    opacity: bar.opacity,
+                    animationDelay: `${bar.delay}s`,
+                    animationDuration: `${bar.duration}s`,
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Optional video overrides the visual when present */}
             <video
               autoPlay
               loop
@@ -77,14 +104,9 @@ export default function HeroSection() {
             >
               <source src="/hero.mp4" type="video/mp4" />
             </video>
-            {/* Logo watermark + grid texture */}
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-              <div className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-md">
-                <Image src="/logo.png" alt="IMPULSER" width={64} height={64} />
-              </div>
-            </div>
+
             {/* Blend the two panels on large screens */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent lg:block" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-28 bg-gradient-to-r from-[#0a0a0a] to-transparent lg:block" />
           </div>
         </div>
 

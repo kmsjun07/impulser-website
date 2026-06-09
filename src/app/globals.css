@@ -139,6 +139,19 @@ body {
   50% { background-position: 100% 60%, 0% 50%, 40% 60%, 80% 20%; }
 }
 
+/* Equalizer bars — monochrome "data pulse" hero visual */
+@keyframes eq {
+  0%, 100% { transform: scaleY(0.22); }
+  50% { transform: scaleY(1); }
+}
+.eq-bar {
+  transform-origin: center;
+  animation: eq 1.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .eq-bar { animation: none; transform: scaleY(0.6); }
+}
+
 /* Subtle border ring for the featured product card */
 .product-glow::before {
   content: "";
