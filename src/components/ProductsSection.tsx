@@ -36,26 +36,16 @@ export default function ProductsSection() {
         {/* Featured: Pillert */}
         <Reveal>
           <div className="product-glow relative overflow-hidden rounded-3xl border border-border bg-surface p-8 sm:p-12">
-            <div
-              className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full blur-[100px]"
-              style={{ background: "rgba(13, 110, 253, 0.18)" }}
-            />
             <div className="relative grid items-center gap-10 lg:grid-cols-[auto_1fr]">
               {/* Logo tile */}
               <div className="flex justify-center lg:justify-start">
-                <div
-                  className="flex h-32 w-32 items-center justify-center rounded-3xl shadow-2xl sm:h-40 sm:w-40"
-                  style={{
-                    background: "#0D6EFD",
-                    boxShadow: "0 20px 60px rgba(13, 110, 253, 0.35)",
-                  }}
-                >
+                <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-3xl border border-border shadow-lg sm:h-40 sm:w-40">
                   <Image
                     src="/pillert.png"
                     alt="Pillert"
                     width={160}
                     height={160}
-                    className="h-full w-full rounded-3xl"
+                    className="h-full w-full rounded-3xl grayscale"
                   />
                 </div>
               </div>
@@ -65,8 +55,8 @@ export default function ProductsSection() {
                 <div className="mb-4 flex flex-wrap items-center gap-3">
                   <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-foreground">
                     <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-pop opacity-75" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-pop" />
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-60" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-foreground" />
                     </span>
                     {p.statusLive[lang]}
                   </span>

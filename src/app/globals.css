@@ -2,10 +2,9 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ---- Light theme (default) — Hancom-style black & white ---- */
-/* The "accent" (gold) tokens are intentionally MONOCHROME so general UI stays
-   black/white/gray. Orange (--orange / text-pop) is reserved for special
-   touches only (e.g. the ✛ plus icons), exactly like hancom.com. */
+/* ---- Light theme (default) — fully black & white ---- */
+/* The "accent" (gold) tokens are intentionally MONOCHROME: the entire UI is
+   black/white/gray with no color accent at all. */
 :root {
   --background: #ffffff;
   --foreground: #0a0a0a;
@@ -17,7 +16,6 @@
   --accent-light: #2c2c2e;
   --accent-dark: #000000;
   --accent-pale: #ededef;
-  --orange: #ff4d17;
 }
 
 /* ---- Dark theme ---- */
@@ -32,7 +30,6 @@
   --accent-light: #ffffff;
   --accent-dark: #d4d4d8;
   --accent-pale: #2a2a2e;
-  --orange: #ff5a2a;
 }
 
 @theme inline {
@@ -47,8 +44,6 @@
   --color-surface-light: var(--surface-light);
   --color-border: var(--border);
   --color-muted: var(--muted);
-  /* orange — special-case accent only (plus icons, status dots) */
-  --color-pop: var(--orange);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -128,16 +123,16 @@ body {
   animation: float-slow 9s ease-in-out infinite;
 }
 
-/* Colorful aurora visual for the hero (purple / pink / cyan nebula) */
+/* Monochrome animated visual for the hero (soft moving light on black) */
 .hero-aurora {
   background:
-    radial-gradient(42% 52% at 22% 30%, rgba(139, 92, 246, 0.6), transparent 70%),
-    radial-gradient(46% 56% at 76% 24%, rgba(236, 72, 153, 0.5), transparent 70%),
-    radial-gradient(52% 62% at 60% 76%, rgba(34, 211, 238, 0.45), transparent 70%),
-    radial-gradient(60% 70% at 36% 72%, rgba(59, 130, 246, 0.4), transparent 70%),
-    #0a0612;
+    radial-gradient(42% 52% at 24% 30%, rgba(255, 255, 255, 0.16), transparent 70%),
+    radial-gradient(46% 56% at 76% 24%, rgba(255, 255, 255, 0.10), transparent 70%),
+    radial-gradient(52% 62% at 60% 78%, rgba(255, 255, 255, 0.08), transparent 70%),
+    radial-gradient(60% 70% at 36% 72%, rgba(255, 255, 255, 0.06), transparent 70%),
+    #0a0a0a;
   background-size: 160% 160%;
-  animation: aurora 20s ease-in-out infinite;
+  animation: aurora 22s ease-in-out infinite;
 }
 @keyframes aurora {
   0%, 100% { background-position: 0% 0%, 100% 0%, 50% 100%, 0% 100%; }

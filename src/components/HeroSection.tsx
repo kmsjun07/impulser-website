@@ -6,7 +6,7 @@ import { t } from "@/i18n/translations";
 
 function Plus() {
   return (
-    <svg className="h-4 w-4 text-pop" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+    <svg className="h-4 w-4 text-white/80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" d="M12 5v14M5 12h14" />
     </svg>
   );
@@ -59,6 +59,14 @@ export default function HeroSection() {
           {/* Right: animated aurora + optional video (drop /hero.mp4 into public/) */}
           <div className="relative min-h-[280px] overflow-hidden lg:min-h-[520px]">
             <div className="hero-aurora absolute inset-0" />
+            <div
+              className="absolute inset-0 opacity-40"
+              style={{
+                backgroundImage:
+                  "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+                backgroundSize: "48px 48px",
+              }}
+            />
             <video
               autoPlay
               loop
