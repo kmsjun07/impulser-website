@@ -34,8 +34,8 @@ export default function HeroSection() {
               {h.heading2[lang]}
             </h1>
 
-            <p className="mt-6 max-w-lg text-base leading-relaxed text-white break-keep sm:text-lg">
-              {h.subtitle[lang].replace(/\n/g, " ")}
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-white break-keep whitespace-pre-line">
+              {h.subtitle[lang]}
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">

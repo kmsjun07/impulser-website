@@ -43,7 +43,7 @@ export default function TechSection() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {tc.steps.map((phase, i) => (
               <div key={i} className="relative text-center">
-                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full border border-foreground bg-background font-mono text-lg font-bold text-foreground">
+                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full border border-foreground bg-background text-lg font-bold text-foreground">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <h4 className="mb-2 font-semibold">{phase.title[lang]}</h4>

@@ -48,8 +48,8 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-3">
-          <Image src="/logo.png" alt="IMPULSER" width={36} height={36} className="logo-mark" />
-          <span className="text-xl font-bold tracking-wider gradient-text">
+          <Image src="/logo.png" alt="IMPULSER" width={48} height={48} className="logo-mark h-11 w-11" />
+          <span className="text-2xl font-bold tracking-wider gradient-text">
             IMPULSER
           </span>
         </a>
@@ -68,7 +68,7 @@ export default function Navbar() {
 
           <a
             href="#contact"
-            className="text-sm font-semibold text-foreground transition-opacity hover:opacity-60"
+            className="text-sm text-muted transition-colors hover:text-gold"
           >
             {t.nav.cta[lang]}
           </a>

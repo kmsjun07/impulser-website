@@ -19,7 +19,7 @@ export default function AboutSection() {
                 {["AI", "ML", "DL", "API", "SaaS", "DB", "R&D", "IoT", "Dev"].map((label) => (
                   <div
                     key={label}
-                    className="flex aspect-square items-center justify-center rounded-xl border border-border bg-background text-sm font-mono text-foreground transition-colors hover:bg-foreground hover:text-background"
+                    className="flex aspect-square items-center justify-center rounded-xl border border-border bg-background text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background"
                   >
                     {label}
                   </div>
