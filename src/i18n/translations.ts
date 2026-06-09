@@ -10,6 +10,7 @@ export const t = {
   nav: {
     home: { ko: "홈", en: "Home", ja: "ホーム" },
     services: { ko: "서비스", en: "Services", ja: "サービス" },
+    products: { ko: "제품", en: "Products", ja: "製品" },
     about: { ko: "회사소개", en: "About", ja: "会社紹介" },
     tech: { ko: "기술", en: "Technology", ja: "技術" },
     contact: { ko: "문의", en: "Contact", ja: "お問合せ" },
@@ -95,6 +96,68 @@ export const t = {
       },
     ],
   },
+  products: {
+    label: { ko: "자사 제품", en: "Our Products", ja: "自社製品" },
+    heading1: { ko: "직접 만든 ", en: "Products We ", ja: "自ら創る" },
+    headingAccent: { ko: "제품", en: "Build", ja: "製品" },
+    heading2: { ko: "으로 증명합니다", en: " & Ship", ja: "で証明する" },
+    subtitle: {
+      ko: "임펄서가 직접 기획하고 개발하여 시장에 선보이는 자사 애플리케이션입니다.",
+      en: "Applications we design, develop, and ship to the market ourselves.",
+      ja: "IMPULSERが自ら企画・開発し市場に届ける自社アプリケーションです。",
+    },
+    statusLive: { ko: "정식 출시", en: "Live", ja: "リリース済み" },
+    statusUpcoming: {
+      ko: "2026 하반기 출시 예정",
+      en: "Coming H2 2026",
+      ja: "2026年下半期予定",
+    },
+    visit: { ko: "자세히 보기", en: "Learn more", ja: "詳しく見る" },
+    items: [
+      {
+        name: { ko: "Pillert", en: "Pillert", ja: "Pillert" },
+        category: { ko: "헬스케어", en: "Healthcare", ja: "ヘルスケア" },
+        tagline: {
+          ko: "복약 알림과 건강관리를 한 번에",
+          en: "Medication reminders & health management in one",
+          ja: "服薬リマインダーと健康管理をひとつに",
+        },
+        desc: {
+          ko: "복용 시간을 놓치지 않도록 알려주고, 건강 데이터를 함께 관리하는 헬스케어 앱. iOS·Android 정식 출시.",
+          en: "A healthcare app that keeps you on schedule with medication reminders while managing your health data. Now live on iOS & Android.",
+          ja: "服用時間を逃さないようリマインドし、健康データも一緒に管理するヘルスケアアプリ。iOS・Android 正式リリース。",
+        },
+      },
+      {
+        name: { ko: "Fandora", en: "Fandora", ja: "Fandora" },
+        category: { ko: "크리에이터 플랫폼", en: "Creator Platform", ja: "クリエイタープラットフォーム" },
+        tagline: {
+          ko: "팬과 크리에이터를 잇는 새로운 플랫폼",
+          en: "A new platform connecting fans and creators",
+          ja: "ファンとクリエイターをつなぐ新しいプラットフォーム",
+        },
+        desc: {
+          ko: "팬과 크리에이터가 더 가깝게 소통하고 함께 성장하는 차세대 팬덤 플랫폼. 2026년 하반기 출시 예정.",
+          en: "A next-generation fandom platform where fans and creators connect and grow together. Launching in H2 2026.",
+          ja: "ファンとクリエイターがより近くで交流し共に成長する次世代ファンダムプラットフォーム。2026年下半期リリース予定。",
+        },
+      },
+      {
+        name: { ko: "쌀먹의 민족", en: "Ssalmeok", ja: "쌀먹의 민족" },
+        category: { ko: "AI 핀테크", en: "AI Fintech", ja: "AIフィンテック" },
+        tagline: {
+          ko: "AI 자동 리서치로 만드는 무료 금융 수익",
+          en: "Free financial returns powered by AI auto-research",
+          ja: "AI自動リサーチで生み出す無料の金融収益",
+        },
+        desc: {
+          ko: "AI 기반 자동 리서치로 금융 정보를 분석해, 누구나 무료로 수익 기회를 발견할 수 있도록 돕는 핀테크 앱. 2026년 하반기 출시 예정.",
+          en: "A fintech app that analyzes financial data with AI-powered auto-research, helping anyone discover profit opportunities for free. Launching in H2 2026.",
+          ja: "AIベースの自動リサーチで金融情報を分析し、誰もが無料で収益機会を見つけられるよう支援するフィンテックアプリ。2026年下半期リリース予定。",
+        },
+      },
+    ],
+  },
   about: {
     heading1: { ko: "기술의 ", en: "Creating ", ja: "技術の" },
     headingAccent: { ko: "임팩트", en: "Impact", ja: "インパクト" },
@@ -136,6 +199,24 @@ export const t = {
       },
     ],
     techCapability: { ko: "기술 역량", en: "Tech Capability", ja: "技術力" },
+    education: {
+      label: { ko: "교육 · 연구 활동", en: "Education & Research", ja: "教育・研究活動" },
+      title: {
+        ko: "AI 시대의 프로그램 개발과 전문분야 적용 전략",
+        en: "Software Development & Domain Application Strategy in the AI Era",
+        ja: "AI時代のプログラム開発と専門分野への適用戦略",
+      },
+      org: {
+        ko: "대림대학교 AI 교육 과정",
+        en: "AI Program · Daelim University",
+        ja: "大林大学校 AI教育課程",
+      },
+      desc: {
+        ko: "대림대학교에서 진행된 AI 교육 과정에 참여해, AI 시대에 맞는 소프트웨어 개발 방법론과 산업별 전문분야 적용 전략을 학습했습니다. 배운 역량을 자사 제품과 고객 프로젝트에 직접 적용하고 있습니다.",
+        en: "We took part in an AI program at Daelim University covering modern software development methodologies for the AI era and strategies for applying them across specialized industries—knowledge we put directly to work in our own products and client projects.",
+        ja: "大林大学校で行われたAI教育課程に参加し、AI時代に適したソフトウェア開発手法と産業別の専門分野への適用戦略を学びました。得た知見を自社製品と顧客プロジェクトに直接活かしています。",
+      },
+    },
   },
   tech: {
     label: { ko: "기술 스택", en: "Tech Stack", ja: "技術スタック" },

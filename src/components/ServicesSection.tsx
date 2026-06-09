@@ -2,6 +2,7 @@
 
 import { useLang } from "@/i18n/LanguageContext";
 import { t } from "@/i18n/translations";
+import Reveal from "./Reveal";
 
 const icons = [
   <svg key="ai" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -26,24 +27,23 @@ export default function ServicesSection() {
     <section id="services" className="px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="gold-line mb-16" />
-        <div className="mb-16 text-center">
+        <Reveal className="mb-16 text-center">
           <p className="mb-3 text-sm font-semibold tracking-widest text-gold uppercase">Services</p>
           <h2 className="text-3xl font-bold sm:text-4xl">{s.label[lang]}</h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted">{s.subtitle[lang]}</p>
-        </div>
+        </Reveal>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {s.items.map((service, i) => (
-            <div
-              key={i}
-              className="group rounded-2xl border border-border bg-surface p-8 transition-all hover:border-gold/30 hover:bg-surface-light"
-            >
-              <div className="mb-5 inline-flex rounded-xl bg-gold/10 p-3 text-gold transition-colors group-hover:bg-gold/20">
-                {icons[i]}
+            <Reveal key={i} delay={i * 100}>
+              <div className="group h-full rounded-2xl border border-border bg-surface p-8 transition-all hover:-translate-y-1 hover:border-gold/30 hover:bg-surface-light">
+                <div className="mb-5 inline-flex rounded-xl bg-gold/10 p-3 text-gold transition-colors group-hover:bg-gold/20">
+                  {icons[i]}
+                </div>
+                <h3 className="mb-3 text-lg font-semibold">{service.title[lang]}</h3>
+                <p className="text-sm leading-relaxed text-muted">{service.desc[lang]}</p>
               </div>
-              <h3 className="mb-3 text-lg font-semibold">{service.title[lang]}</h3>
-              <p className="text-sm leading-relaxed text-muted">{service.desc[lang]}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

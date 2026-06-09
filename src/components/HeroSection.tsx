@@ -13,7 +13,7 @@ export default function HeroSection() {
       id="home"
       className="grid-bg relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-20"
     >
-      <div className="pointer-events-none absolute top-1/4 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-gold/5 blur-[120px]" />
+      <div className="float-slow pointer-events-none absolute top-1/4 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-gold/5 blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <div className="mb-8 flex justify-center">
@@ -66,6 +66,17 @@ export default function HeroSection() {
           ))}
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <a
+        href="#services"
+        aria-label="scroll"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gold/60 transition-colors hover:text-gold"
+      >
+        <svg className="scroll-indicator h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </svg>
+      </a>
     </section>
   );
 }

@@ -8,6 +8,7 @@ import { t, langLabels, type Lang } from "@/i18n/translations";
 const navLinks = [
   { href: "#home", key: "home" as const },
   { href: "#services", key: "services" as const },
+  { href: "#products", key: "products" as const },
   { href: "#about", key: "about" as const },
   { href: "#tech", key: "tech" as const },
   { href: "#contact", key: "contact" as const },
