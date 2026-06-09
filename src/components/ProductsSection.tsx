@@ -63,10 +63,10 @@ export default function ProductsSection() {
               {/* Content */}
               <div>
                 <div className="mb-4 flex flex-wrap items-center gap-3">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-400">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-foreground">
                     <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-pop opacity-75" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-pop" />
                     </span>
                     {p.statusLive[lang]}
                   </span>

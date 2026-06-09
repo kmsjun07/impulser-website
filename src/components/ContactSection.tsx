@@ -108,7 +108,7 @@ export default function ContactSection() {
                   <label htmlFor="message" className="mb-2 block text-sm font-medium">{c.formMessage[lang]}</label>
                   <textarea id="message" rows={4} required className="w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/50 focus:border-gold focus:outline-none" placeholder={c.formMessagePlaceholder[lang]} />
                 </div>
-                <button type="submit" className="w-full rounded-lg bg-gold py-3.5 font-medium text-white transition-colors hover:bg-gold-light">
+                <button type="submit" className="w-full rounded-lg bg-gold py-3.5 font-medium text-background transition-colors hover:bg-gold-light">
                   {c.formSubmit[lang]}
                 </button>
               </form>

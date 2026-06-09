@@ -2,18 +2,22 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ---- Light theme (default) — Hancom-style mono + orange ---- */
+/* ---- Light theme (default) — Hancom-style black & white ---- */
+/* The "accent" (gold) tokens are intentionally MONOCHROME so general UI stays
+   black/white/gray. Orange (--orange / text-pop) is reserved for special
+   touches only (e.g. the ✛ plus icons), exactly like hancom.com. */
 :root {
   --background: #ffffff;
   --foreground: #0a0a0a;
   --surface: #f4f5f7;
   --surface-light: #ececef;
-  --border: #e6e7ea;
+  --border: #e3e4e7;
   --muted: #6b7280;
-  --accent: #ff4d17;
-  --accent-light: #ff6b3d;
-  --accent-dark: #e23e0c;
-  --accent-pale: #ffd9c9;
+  --accent: #0a0a0a;
+  --accent-light: #2c2c2e;
+  --accent-dark: #000000;
+  --accent-pale: #ededef;
+  --orange: #ff4d17;
 }
 
 /* ---- Dark theme ---- */
@@ -22,12 +26,13 @@
   --foreground: #f2f2f3;
   --surface: #161618;
   --surface-light: #1f1f22;
-  --border: #28282c;
+  --border: #2a2a2e;
   --muted: #9a9aa2;
-  --accent: #ff5a2a;
-  --accent-light: #ff7a50;
-  --accent-dark: #e8430f;
-  --accent-pale: #3a241c;
+  --accent: #f2f2f3;
+  --accent-light: #ffffff;
+  --accent-dark: #d4d4d8;
+  --accent-pale: #2a2a2e;
+  --orange: #ff5a2a;
 }
 
 @theme inline {
@@ -42,6 +47,8 @@
   --color-surface-light: var(--surface-light);
   --color-border: var(--border);
   --color-muted: var(--muted);
+  /* orange — special-case accent only (plus icons, status dots) */
+  --color-pop: var(--orange);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -74,7 +81,7 @@ body {
 }
 
 .gold-line {
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--foreground) 14%, transparent), transparent);
   height: 1px;
 }
 
@@ -144,7 +151,7 @@ body {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(255, 77, 23, 0.4), transparent 40%, transparent 60%, rgba(255, 77, 23, 0.25));
+  background: linear-gradient(135deg, color-mix(in srgb, var(--foreground) 22%, transparent), transparent 40%, transparent 60%, color-mix(in srgb, var(--foreground) 12%, transparent));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;

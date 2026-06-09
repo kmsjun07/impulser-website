@@ -6,7 +6,7 @@ import { t } from "@/i18n/translations";
 
 function Plus() {
   return (
-    <svg className="h-4 w-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+    <svg className="h-4 w-4 text-pop" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" d="M12 5v14M5 12h14" />
     </svg>
   );
@@ -24,16 +24,14 @@ export default function HeroSection() {
           {/* Left: black panel with copy */}
           <div className="relative z-10 flex flex-col justify-center bg-[#0a0a0a] px-8 py-14 text-white sm:px-12 lg:py-20">
             <div className="mb-7 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm text-white/80">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+              <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
               {h.badge[lang]}
             </div>
 
-            <h1 className="text-4xl font-bold leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-bold leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-6xl">
               {h.heading1[lang]}
               <br />
-              <span className="bg-gradient-to-r from-fuchsia-400 via-pink-400 to-cyan-300 bg-clip-text text-transparent">
-                {h.heading2[lang]}
-              </span>
+              {h.heading2[lang]}
             </h1>
 
             <p className="mt-6 max-w-md leading-relaxed text-white/65 whitespace-pre-line">
@@ -43,12 +41,10 @@ export default function HeroSection() {
             <div className="mt-9 flex flex-wrap gap-3">
               <a
                 href="#services"
-                className="inline-flex items-center justify-between gap-6 rounded-lg bg-gold px-6 py-3 font-medium text-white transition-colors hover:bg-gold-dark"
+                className="inline-flex items-center justify-between gap-6 rounded-lg border border-white/25 px-6 py-3 font-medium text-white transition-colors hover:bg-white/10"
               >
                 {h.ctaPrimary[lang]}
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" d="M12 5v14M5 12h14" />
-                </svg>
+                <Plus />
               </a>
               <a
                 href="#contact"
@@ -92,7 +88,7 @@ export default function HeroSection() {
             { value: lang === "ko" ? "맞춤형" : lang === "ja" ? "カスタム" : "Custom", label: h.stats.solution[lang] },
             { value: "R&D", label: h.stats.rnd[lang] },
           ].map((stat) => (
-            <div key={stat.label} className="border-l-2 border-gold/60 pl-4">
+            <div key={stat.label} className="border-l-2 border-foreground/15 pl-4">
               <div className="text-2xl font-bold sm:text-3xl">{stat.value}</div>
               <div className="mt-1 text-sm text-muted">{stat.label}</div>
             </div>
