@@ -68,7 +68,7 @@ export default function Navbar() {
 
           <a
             href="#contact"
-            className="rounded-lg border border-foreground bg-background px-5 py-2 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
+            className="text-sm font-semibold text-foreground transition-opacity hover:opacity-60"
           >
             {t.nav.cta[lang]}
           </a>

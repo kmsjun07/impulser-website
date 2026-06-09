@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
@@ -7,14 +7,16 @@ import "./globals.css";
 // Applies the saved theme before paint to avoid a flash. Light is the default.
 const themeScript = `(function(){try{if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})();`;
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const maruBuri = localFont({
+  src: [
+    { path: "../../public/fonts/maruburi/MaruBuri-ExtraLight.ttf", weight: "200", style: "normal" },
+    { path: "../../public/fonts/maruburi/MaruBuri-Light.ttf", weight: "300", style: "normal" },
+    { path: "../../public/fonts/maruburi/MaruBuri-Regular.ttf", weight: "400", style: "normal" },
+    { path: "../../public/fonts/maruburi/MaruBuri-SemiBold.ttf", weight: "600", style: "normal" },
+    { path: "../../public/fonts/maruburi/MaruBuri-Bold.ttf", weight: "700", style: "normal" },
+  ],
+  variable: "--font-maruburi",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -35,7 +37,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${maruBuri.variable} antialiased`}
       >
         <ThemeProvider>
           <LanguageProvider>{children}</LanguageProvider>

@@ -19,6 +19,9 @@ const icons = [
   </svg>,
 ];
 
+// Per-service icon colors (the one place color is welcome on the B&W page)
+const accents = ["#7C3AED", "#2563EB", "#059669", "#EA580C"];
+
 export default function ServicesSection() {
   const { lang } = useLang();
   const s = t.services;
@@ -37,7 +40,14 @@ export default function ServicesSection() {
           {s.items.map((service, i) => (
             <Reveal key={i} delay={i * 100}>
               <div className="group h-full rounded-2xl border border-border bg-background p-8 transition-transform hover:-translate-y-1">
-                <div className="mb-5 inline-flex rounded-xl border border-foreground p-3 text-foreground">
+                <div
+                  className="mb-5 inline-flex rounded-xl border p-3"
+                  style={{
+                    color: accents[i],
+                    backgroundColor: `${accents[i]}14`,
+                    borderColor: `${accents[i]}40`,
+                  }}
+                >
                   {icons[i]}
                 </div>
                 <h3 className="mb-3 text-lg font-semibold">{service.title[lang]}</h3>

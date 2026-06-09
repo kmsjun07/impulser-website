@@ -25,11 +25,11 @@ export default function TechSection() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {techStack.map((group) => (
-            <div key={group.category} className="rounded-2xl border border-border bg-surface p-6">
-              <h3 className="mb-4 text-sm font-semibold tracking-widest text-gold uppercase">{group.category}</h3>
-              <div className="flex flex-wrap gap-2">
+            <div key={group.category} className="flex h-full flex-col rounded-2xl border border-border bg-background p-6">
+              <h3 className="mb-4 border-b border-border pb-3 text-sm font-semibold tracking-widest text-gold uppercase">{group.category}</h3>
+              <div className="flex flex-wrap content-start gap-2">
                 {group.items.map((item) => (
-                  <span key={item} className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground">
+                  <span key={item} className="rounded-lg border border-border px-3 py-1.5 text-sm text-foreground">
                     {item}
                   </span>
                 ))}
