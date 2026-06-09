@@ -200,21 +200,21 @@ export const t = {
     ],
     techCapability: { ko: "기술 역량", en: "Tech Capability", ja: "技術力" },
     education: {
-      label: { ko: "교육 · 연구 활동", en: "Education & Research", ja: "教育・研究活動" },
+      label: { ko: "강연 · 교육 활동", en: "Speaking & Education", ja: "講演・教育活動" },
       title: {
         ko: "AI 시대의 프로그램 개발과 전문분야 적용 전략",
         en: "Software Development & Domain Application Strategy in the AI Era",
         ja: "AI時代のプログラム開発と専門分野への適用戦略",
       },
       org: {
-        ko: "대림대학교 AI 교육 과정",
-        en: "AI Program · Daelim University",
-        ja: "大林大学校 AI教育課程",
+        ko: "대림대학교 초청 강연",
+        en: "Invited Lecture · Daelim University",
+        ja: "大林大学校 招待講演",
       },
       desc: {
-        ko: "대림대학교에서 진행된 AI 교육 과정에 참여해, AI 시대에 맞는 소프트웨어 개발 방법론과 산업별 전문분야 적용 전략을 학습했습니다. 배운 역량을 자사 제품과 고객 프로젝트에 직접 적용하고 있습니다.",
-        en: "We took part in an AI program at Daelim University covering modern software development methodologies for the AI era and strategies for applying them across specialized industries—knowledge we put directly to work in our own products and client projects.",
-        ja: "大林大学校で行われたAI教育課程に参加し、AI時代に適したソフトウェア開発手法と産業別の専門分野への適用戦略を学びました。得た知見を自社製品と顧客プロジェクトに直接活かしています。",
+        ko: "대림대학교에서 학생들을 대상으로 'AI 시대의 프로그램 개발과 전문분야 적용 전략'을 주제로 강의를 진행했습니다. 현업에서 쌓은 AI·소프트웨어 개발 역량을 교육 현장과 공유하며, 그 노하우를 자사 제품과 고객 프로젝트에 그대로 적용하고 있습니다.",
+        en: "We delivered a lecture to students at Daelim University on 'Software Development & Domain Application Strategy in the AI Era.' We share the AI and software-engineering expertise built in the field with the next generation—and apply that same know-how directly to our products and client projects.",
+        ja: "大林大学校で学生を対象に「AI時代のプログラム開発と専門分野への適用戦略」をテーマに講義を行いました。現場で培ったAI・ソフトウェア開発の知見を教育の場で共有し、そのノウハウを自社製品と顧客プロジェクトにそのまま活かしています。",
       },
     },
   },
