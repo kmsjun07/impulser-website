@@ -2,38 +2,38 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ---- Light theme (default) ---- */
+/* ---- Light theme (default) — Hancom-style mono + orange ---- */
 :root {
   --background: #ffffff;
-  --foreground: #0b1220;
-  --surface: #f5f8fc;
-  --surface-light: #eaf0f8;
-  --border: #e2e8f2;
-  --muted: #5b6675;
-  --accent: #2563eb;
-  --accent-light: #3b82f6;
-  --accent-dark: #1d4ed8;
-  --accent-pale: #bcd4fb;
+  --foreground: #0a0a0a;
+  --surface: #f4f5f7;
+  --surface-light: #ececef;
+  --border: #e6e7ea;
+  --muted: #6b7280;
+  --accent: #ff4d17;
+  --accent-light: #ff6b3d;
+  --accent-dark: #e23e0c;
+  --accent-pale: #ffd9c9;
 }
 
 /* ---- Dark theme ---- */
 .dark {
-  --background: #080b12;
-  --foreground: #e9eef5;
-  --surface: #10151f;
-  --surface-light: #1a2130;
-  --border: #232c3b;
-  --muted: #93a0b2;
-  --accent: #4f8cff;
-  --accent-light: #6ea2ff;
-  --accent-dark: #2f6fe0;
-  --accent-pale: #1d3354;
+  --background: #0a0a0a;
+  --foreground: #f2f2f3;
+  --surface: #161618;
+  --surface-light: #1f1f22;
+  --border: #28282c;
+  --muted: #9a9aa2;
+  --accent: #ff5a2a;
+  --accent-light: #ff7a50;
+  --accent-dark: #e8430f;
+  --accent-pale: #3a241c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  /* "gold" tokens are kept as names but now map to the brand deep-blue accent */
+  /* "gold" tokens kept as names but now map to the brand orange accent */
   --color-gold: var(--accent);
   --color-gold-light: var(--accent-light);
   --color-gold-dark: var(--accent-dark);
@@ -57,21 +57,19 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Mono headline style — solid foreground (Hancom keeps headlines monochrome) */
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent-light) 50%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--foreground);
 }
 
 .glow {
-  box-shadow: 0 0 60px rgba(37, 99, 235, 0.12);
+  box-shadow: 0 24px 60px rgba(10, 10, 10, 0.06);
 }
 
 .grid-bg {
   background-image:
-    linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(10, 10, 10, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 10, 0.035) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -98,7 +96,7 @@ body {
     transform: none;
     transition: none;
   }
-  .hero-mesh,
+  .hero-aurora,
   .float-slow,
   .scroll-indicator {
     animation: none !important;
@@ -114,39 +112,39 @@ body {
   animation: scroll-bounce 1.8s ease-in-out infinite;
 }
 
-/* Slow ambient float for glows */
+/* Slow ambient float */
 @keyframes float-slow {
-  0%, 100% { transform: translate(-50%, 0) scale(1); opacity: 0.55; }
-  50% { transform: translate(-50%, -18px) scale(1.08); opacity: 0.8; }
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.55; }
+  50% { transform: translateY(-18px) scale(1.08); opacity: 0.8; }
 }
 .float-slow {
   animation: float-slow 9s ease-in-out infinite;
 }
 
-/* Animated hero mesh gradient (deep-blue, theme-independent) */
-.hero-mesh {
+/* Colorful aurora visual for the hero (purple / pink / cyan nebula) */
+.hero-aurora {
   background:
-    radial-gradient(at 18% 28%, rgba(37, 99, 235, 0.55), transparent 45%),
-    radial-gradient(at 82% 18%, rgba(56, 130, 246, 0.45), transparent 42%),
-    radial-gradient(at 62% 82%, rgba(29, 78, 216, 0.5), transparent 46%),
-    radial-gradient(at 30% 70%, rgba(14, 30, 70, 0.6), transparent 50%),
-    #070d1c;
-  background-size: 180% 180%;
-  animation: mesh-move 20s ease-in-out infinite;
+    radial-gradient(42% 52% at 22% 30%, rgba(139, 92, 246, 0.6), transparent 70%),
+    radial-gradient(46% 56% at 76% 24%, rgba(236, 72, 153, 0.5), transparent 70%),
+    radial-gradient(52% 62% at 60% 76%, rgba(34, 211, 238, 0.45), transparent 70%),
+    radial-gradient(60% 70% at 36% 72%, rgba(59, 130, 246, 0.4), transparent 70%),
+    #0a0612;
+  background-size: 160% 160%;
+  animation: aurora 20s ease-in-out infinite;
 }
-@keyframes mesh-move {
-  0%, 100% { background-position: 0% 0%, 100% 0%, 50% 100%, 0% 100%, 0 0; }
-  50% { background-position: 100% 50%, 0% 60%, 30% 60%, 80% 20%, 0 0; }
+@keyframes aurora {
+  0%, 100% { background-position: 0% 0%, 100% 0%, 50% 100%, 0% 100%; }
+  50% { background-position: 100% 60%, 0% 50%, 40% 60%, 80% 20%; }
 }
 
-/* Subtle border shimmer for featured product card */
+/* Subtle border ring for the featured product card */
 .product-glow::before {
   content: "";
   position: absolute;
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.5), transparent 40%, transparent 60%, rgba(37, 99, 235, 0.3));
+  background: linear-gradient(135deg, rgba(255, 77, 23, 0.4), transparent 40%, transparent 60%, rgba(255, 77, 23, 0.25));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;

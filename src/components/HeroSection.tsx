@@ -4,98 +4,101 @@ import Image from "next/image";
 import { useLang } from "@/i18n/LanguageContext";
 import { t } from "@/i18n/translations";
 
+function Plus() {
+  return (
+    <svg className="h-4 w-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" d="M12 5v14M5 12h14" />
+    </svg>
+  );
+}
+
 export default function HeroSection() {
   const { lang } = useLang();
   const h = t.hero;
 
   return (
-    <section
-      id="home"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-20 text-white"
-    >
-      {/* Background video (drop /hero.mp4 + /hero-poster.jpg into public/) */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster="/hero-poster.jpg"
-        className="absolute inset-0 z-0 h-full w-full object-cover opacity-40"
-      >
-        <source src="/hero.mp4" type="video/mp4" />
-      </video>
+    <section id="home" className="px-4 pt-24 pb-12 sm:px-6 sm:pt-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Hancom-style split card: black panel + colorful aurora visual */}
+        <div className="relative grid overflow-hidden rounded-[28px] lg:grid-cols-2">
+          {/* Left: black panel with copy */}
+          <div className="relative z-10 flex flex-col justify-center bg-[#0a0a0a] px-8 py-14 text-white sm:px-12 lg:py-20">
+            <div className="mb-7 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm text-white/80">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+              {h.badge[lang]}
+            </div>
 
-      {/* Animated mesh gradient — shows on its own when no video is present */}
-      <div className="hero-mesh absolute inset-0 z-0" />
+            <h1 className="text-4xl font-bold leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
+              {h.heading1[lang]}
+              <br />
+              <span className="bg-gradient-to-r from-fuchsia-400 via-pink-400 to-cyan-300 bg-clip-text text-transparent">
+                {h.heading2[lang]}
+              </span>
+            </h1>
 
-      {/* Readability overlay + grid texture */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#070d1c]/70 via-[#0a1428]/75 to-[#070d1c]/95" />
-      <div className="grid-bg absolute inset-0 z-0 opacity-50" />
+            <p className="mt-6 max-w-md leading-relaxed text-white/65 whitespace-pre-line">
+              {h.subtitle[lang]}
+            </p>
 
-      <div className="relative z-10 mx-auto max-w-4xl text-center">
-        <div className="mb-8 flex justify-center">
-          <div className="rounded-full border border-white/15 bg-white/10 p-6 backdrop-blur-md">
-            <Image src="/logo.png" alt="IMPULSER" width={80} height={80} />
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a
+                href="#services"
+                className="inline-flex items-center justify-between gap-6 rounded-lg bg-gold px-6 py-3 font-medium text-white transition-colors hover:bg-gold-dark"
+              >
+                {h.ctaPrimary[lang]}
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" d="M12 5v14M5 12h14" />
+                </svg>
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-between gap-6 rounded-lg border border-white/25 px-6 py-3 font-medium text-white transition-colors hover:bg-white/10"
+              >
+                {h.ctaSecondary[lang]}
+                <Plus />
+              </a>
+            </div>
+          </div>
+
+          {/* Right: animated aurora + optional video (drop /hero.mp4 into public/) */}
+          <div className="relative min-h-[280px] overflow-hidden lg:min-h-[520px]">
+            <div className="hero-aurora absolute inset-0" />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="/hero-poster.jpg"
+              className="absolute inset-0 h-full w-full object-cover"
+            >
+              <source src="/hero.mp4" type="video/mp4" />
+            </video>
+            {/* Logo watermark + grid texture */}
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+              <div className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-md">
+                <Image src="/logo.png" alt="IMPULSER" width={64} height={64} />
+              </div>
+            </div>
+            {/* Blend the two panels on large screens */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent lg:block" />
           </div>
         </div>
 
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-sky-200 backdrop-blur-md">
-          <span className="h-2 w-2 rounded-full bg-sky-400" />
-          {h.badge[lang]}
-        </div>
-
-        <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-7xl">
-          {h.heading1[lang]}
-          <br />
-          <span className="bg-gradient-to-r from-sky-300 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
-            {h.heading2[lang]}
-          </span>
-        </h1>
-
-        <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white/70 sm:text-xl whitespace-pre-line">
-          {h.subtitle[lang]}
-        </p>
-
-        <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <a
-            href="#services"
-            className="rounded-lg bg-blue-600 px-8 py-3.5 font-medium text-white transition-all hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-500/30"
-          >
-            {h.ctaPrimary[lang]}
-          </a>
-          <a
-            href="#contact"
-            className="rounded-lg border border-white/30 px-8 py-3.5 font-medium text-white transition-colors hover:bg-white/10"
-          >
-            {h.ctaSecondary[lang]}
-          </a>
-        </div>
-
-        <div className="mt-20 grid grid-cols-2 gap-8 sm:grid-cols-4">
+        {/* Stat strip below the card */}
+        <div className="mt-10 grid grid-cols-2 gap-6 px-2 sm:grid-cols-4">
           {[
             { value: "AI", label: h.stats.ai[lang] },
             { value: "24/7", label: h.stats.system[lang] },
             { value: lang === "ko" ? "맞춤형" : lang === "ja" ? "カスタム" : "Custom", label: h.stats.solution[lang] },
             { value: "R&D", label: h.stats.rnd[lang] },
           ].map((stat) => (
-            <div key={stat.label}>
-              <div className="text-2xl font-bold text-sky-300 sm:text-3xl">{stat.value}</div>
-              <div className="mt-1 text-sm text-white/60">{stat.label}</div>
+            <div key={stat.label} className="border-l-2 border-gold/60 pl-4">
+              <div className="text-2xl font-bold sm:text-3xl">{stat.value}</div>
+              <div className="mt-1 text-sm text-muted">{stat.label}</div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <a
-        href="#services"
-        aria-label="scroll"
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-white/50 transition-colors hover:text-white"
-      >
-        <svg className="scroll-indicator h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-        </svg>
-      </a>
     </section>
   );
 }
